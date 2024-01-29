@@ -1,6 +1,6 @@
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import React from "react";
-import { CATEGORIES, } from "../data/dummy-data";
+import { CATEGORIES } from "../data/dummy-data";
 import CategoryGrid from "../components/CategoryGrid";
 
 export default function CategoriesScreen({ navigation }) {
