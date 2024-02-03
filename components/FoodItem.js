@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     margin: 8,
+    color: "#351401",
   },
   details: {
     flexDirection: "row",
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
   detailItem: {
     marginHorizontal: 4,
     fontSize: 12,
+    color: "#351401",
   },
   buttonPressed: {
     opacity: 0.5,

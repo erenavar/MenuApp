@@ -1,11 +1,33 @@
-import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
-import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  Pressable,
+} from "react-native";
+import React, { useLayoutEffect, useState } from "react";
 import { FOODS } from "../data/dummy-data";
+import { MaterialIcons } from "@expo/vector-icons";
 
-export default function FoodDetailScreen({ route }) {
+export default function FoodDetailScreen({ route, navigation }) {
   const foodId = route.params.foodId;
   const selectedFood = FOODS.find((food) => food.id === foodId);
   const ingredients = selectedFood.ingredients;
+  const [isFalse, setIsFalse] = useState("deneme");
+  const [clicked, setClicked] = useState("white");
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return (
+          <Pressable>
+            <MaterialIcons name="favorite" size={24} color={clicked} />
+          </Pressable>
+        );
+      },
+    });
+  }, navigation);
 
   return (
     <View style={styles.container}>
@@ -43,6 +65,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     marginTop: 5,
+    color: "#351401",
   },
   subPic: {
     flexDirection: "row",
