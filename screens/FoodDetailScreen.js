@@ -6,7 +6,7 @@ import {
   Image,
   Pressable,
 } from "react-native";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FOODS } from "../data/dummy-data";
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -14,20 +14,25 @@ export default function FoodDetailScreen({ route, navigation }) {
   const foodId = route.params.foodId;
   const selectedFood = FOODS.find((food) => food.id === foodId);
   const ingredients = selectedFood.ingredients;
-  const [isFalse, setIsFalse] = useState("deneme");
+  const [isFalse, setIsFalse] = useState(false);
   const [clicked, setClicked] = useState("white");
 
-  useLayoutEffect(() => {
+  const selected = function () {
+    setIsFalse((x) => !x);
+    setClicked(() => (isFalse ? "white" : "red"));
+    console.log(isFalse);
+  };
+  useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
         return (
-          <Pressable>
+          <Pressable onPress={selected}>
             <MaterialIcons name="favorite" size={24} color={clicked} />
           </Pressable>
         );
       },
     });
-  }, navigation);
+  });
 
   return (
     <View style={styles.container}>
