@@ -16,7 +16,7 @@ export const FOODS = [
   new Food(
     "m1",
     ["c1", "c2"],
-    "Spaghett with Tomato Sauce",
+    "Spaghetti with Tomato Sauce",
     "Budget Friendly",
     "Normal Calories",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg",
@@ -58,7 +58,7 @@ export const FOODS = [
     "m4",
     ["c4"],
     "Chicken Saute",
-    "Bufger Friendly",
+    "Budget Friendly",
     "Normal Calories",
     "https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg",
     [
@@ -93,7 +93,7 @@ export const FOODS = [
     "m6",
     ["c6"],
     "Pudding with Orange",
-    "Bufger Friendly",
+    "Budget Friendly",
     "High Calories",
     "https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg",
     [
@@ -108,7 +108,7 @@ export const FOODS = [
     "m7",
     ["c7"],
     "PanCake",
-    "Budger Friendly",
+    "Budget Friendly",
     "Low Calories",
     "https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg",
     [
@@ -124,7 +124,7 @@ export const FOODS = [
     "m8",
     ["c8"],
     "Indian Food with Chicken",
-    "Budger Friendly",
+    "Budget Friendly",
     "Normal Calories",
     "https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg",
     [
@@ -142,7 +142,7 @@ export const FOODS = [
     "m10",
     ["c2", "c5"],
     "Salad with Strawberry",
-    "Budger Friendly",
+    "Budget Friendly",
     "Low Calories",
     "https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg",
     ["Strawberry", "Tomato", "Cucumber", "Salt", "Salad Sauce", "Olive Oil"]
