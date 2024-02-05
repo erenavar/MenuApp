@@ -20,7 +20,6 @@ export default function FoodDetailScreen({ route, navigation }) {
   const selected = function () {
     setIsFalse((x) => !x);
     setClicked(() => (isFalse ? "white" : "red"));
-    console.log(isFalse);
   };
   useEffect(() => {
     navigation.setOptions({
