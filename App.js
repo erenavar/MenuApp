@@ -7,6 +7,8 @@ import FoodOverviewScreen from "./screens/FoodOverviewScreen";
 import FoodDetailScreen from "./screens/FoodDetailScreen";
 import FavoritesScreen from "./screens/FavoritesScreen";
 import { Entypo } from "@expo/vector-icons";
+import { Provider } from "react-redux";
+import { store } from "./redux/store/Store";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -41,35 +43,30 @@ function Root() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: { backgroundColor: "rebeccapurple" },
-          headerTintColor: "white",
-          contentStyle: { backgroundColor: "lightblue" },
-        }}
-      >
-        {/* <Stack.Screen
-          name="Categories"
-          component={CategoriesScreen}
-          options={{
-            title: "All Categories",
+      <Provider store={store}>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: "rebeccapurple" },
+            headerTintColor: "white",
+            contentStyle: { backgroundColor: "lightblue" },
           }}
-        /> */}
-        <Stack.Screen
-          name="Deneme"
-          component={Root}
-          options={{
-            headerShown: false,
-          }}
-        />
+        >
+          <Stack.Screen
+            name="Deneme"
+            component={Root}
+            options={{
+              headerShown: false,
+            }}
+          />
 
-        <Stack.Screen name="FoodOverview" component={FoodOverviewScreen} />
-        <Stack.Screen
-          name="FoodDetail"
-          component={FoodDetailScreen}
-          options={{ title: "Details" }}
-        />
-      </Stack.Navigator>
+          <Stack.Screen name="FoodOverview" component={FoodOverviewScreen} />
+          <Stack.Screen
+            name="FoodDetail"
+            component={FoodDetailScreen}
+            options={{ title: "Details" }}
+          />
+        </Stack.Navigator>
+      </Provider>
     </NavigationContainer>
   );
 }
