@@ -9,24 +9,42 @@ import {
 import React, { useEffect, useState } from "react";
 import { FOODS } from "../data/dummy-data";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useSelector, useDispatch } from "react-redux";
+import { addFavorite, removeFavorite } from "../redux/store/Favorites";
 
 export default function FoodDetailScreen({ route, navigation }) {
+  const favoriteFoodsIds = useSelector((state) => state.favoriteFoods.ids);
   const foodId = route.params.foodId;
+  const dispatch = useDispatch();
   const selectedFood = FOODS.find((food) => food.id === foodId);
+
+  const foodIsFavorite = favoriteFoodsIds.includes(foodId);
+
   const ingredients = selectedFood.ingredients;
   const [isFalse, setIsFalse] = useState(false);
   const [clicked, setClicked] = useState("white");
-
-  const selected = function () {
+  function changeFavorite() {
     setIsFalse((x) => !x);
     setClicked(() => (isFalse ? "white" : "red"));
-  };
+
+    if (foodIsFavorite) {
+      dispatch(removeFavorite({ id: foodId }));
+    } else {
+      dispatch(addFavorite({ id: foodId }));
+    }
+  }
+
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => {
         return (
-          <Pressable onPress={selected}>
-            <MaterialIcons name="favorite" size={24} color={clicked} />
+          <Pressable>
+            <MaterialIcons
+              name="favorite"
+              size={24}
+              color={clicked}
+              onPress={changeFavorite}
+            />
           </Pressable>
         );
       },
